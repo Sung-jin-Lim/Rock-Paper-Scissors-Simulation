@@ -1,6 +1,7 @@
 let userScore = 0;
 let computerScore = 0;
 let roundNumber = 0;
+const roundNumber_span = document.getElementById("round-number");
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
@@ -66,7 +67,7 @@ function draw(user, computer) {
   setTimeout(() => roundStatus.classList.remove("drawStyles"), 300);
 }
 
-// increase round number
+// increase round number whenever
 
 // The core game functions that set up and determine the games actual logic aka paper beats rock etc
 function game(userChoice) {
@@ -113,6 +114,19 @@ function game(userChoice) {
 // ES6 style of writing this function
 // This function creates and adds an eventlistener to the rock, paper scissors html element and the passes the value of that element to the game function
 function main() {
+  rock_div.addEventListener("click", function () {
+    roundNumber++;
+    roundNumber_span.innerHTML = roundNumber;
+  });
+  paper_div.addEventListener("click", function () {
+    roundNumber++;
+    roundNumber_span.innerHTML = roundNumber;
+  });
+  scissors_div.addEventListener("click", function () {
+    roundNumber++;
+    roundNumber_span.innerHTML = roundNumber;
+  });
+
   rock_div.addEventListener("click", () => game("rock"));
   paper_div.addEventListener("click", () => game("paper"));
   scissors_div.addEventListener("click", () => game("scissors"));
